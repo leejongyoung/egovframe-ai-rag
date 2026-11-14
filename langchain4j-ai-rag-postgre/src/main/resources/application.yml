@@ -15,7 +15,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/ragdb
     username: postgres
-    password: postgres
+    password: ${POSTGRES_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
     hikari:
       maximum-pool-size: 10
@@ -60,7 +60,7 @@ pgvector:
   port: 5432
   database: ragdb
   username: postgres
-  password: postgres
+  password: ${POSTGRES_PASSWORD:postgres}
   # 벡터 저장소 테이블 설정
   table-name: document_embeddings
   # 벡터 차원 (ko-sroberta-multitask 모델의 출력 차원)
