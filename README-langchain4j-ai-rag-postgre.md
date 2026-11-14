@@ -74,6 +74,7 @@ ollama list
 2. 임베딩 모델 파일(`model.onnx`, `tokenizer.json`)은 `${user.home}/EgovSearch-Config/Config/model` 디렉토리에 위치시켜야 한다.
 
 3. `docker-compose.yml`을 사용해 `docker compose up -d`로 docker container 기반의 PostgreSQL 설정을 해 둔다.
+   - 먼저 `cp .env.example .env` 후 `POSTGRES_PASSWORD`를 설정한다(미설정 시 compose가 실패한다). 포트는 기본 `127.0.0.1:5432`로만 게시되며, 원격 접속이 필요하면 `.env`의 `POSTGRES_BIND_ADDRESS`를 명시적으로 바꾼다. 애플리케이션은 같은 `POSTGRES_PASSWORD` 환경변수를 읽는다(미설정 시 기존 기본값 `postgres`).
 
 4. 외부 설정 파일을 준비한다. 임베딩 모델과 토크나이저의 경로를 `searchConfig.json`에 설정한다.
 
